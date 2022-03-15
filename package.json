@@ -1,0 +1,24 @@
+{
+  "name": "p4_node-mongo_jg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jon-Garcia-Tamayo/P4_Node-Mongo_JG.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jon-Garcia-Tamayo/P4_Node-Mongo_JG/issues"
+  },
+  "homepage": "https://github.com/Jon-Garcia-Tamayo/P4_Node-Mongo_JG#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6"
+  }
+}
