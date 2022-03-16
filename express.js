@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const cn = require("./mongo/connection");
 
 // Set Bootstrap CSS path
 app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
@@ -19,4 +20,8 @@ app.get("/", (request, response) => {
 // Set a listening port
 app.listen("9000", (e) => {
     console.log("[INFO] Server loaded successfully");
-})
+});
+
+app.get("/books", (request, response) => {
+    cn.getAll(request, response);
+});
