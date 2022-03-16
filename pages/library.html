@@ -6,25 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Biblioteca Node | Jon García</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-
-		<style>
-        .carousel-block {
-            width: 800px;
-            height: 500px;
-        }
-
-        .red {
-            background-color: red;
-        }
-
-        .blue {
-            background-color: blue;
-        }
-
-        .purple {
-            background-color: purple;
-        }
-    </style>
 	</head>
 	<body>
 		<header class="text-center my-5">
@@ -32,24 +13,16 @@
 		</header>
 		<main class="mx-5">
 			<div class="row my-5">
-				<div id="carouselExampleControls" class="carousel" data-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="carousel-block red"></div>
-						</div>
-						<div class="carousel-item">
-							<div class="carousel-block blue"></div>
-						</div>
-						<div class="carousel-item">
-							<div class="carousel-block purple"></div>
-						</div>
+				<div id="book-carousel" class="carousel" data-ride="carousel">
+					<div class="carousel-inner" id="carousel-items">
+
 					</div>
-					<a class="carousel-control-prev" href="#carouselExampleControls"
+					<a class="carousel-control-prev" href="#book-carousel"
 						role="button" data-slide="prev">
 						<span class="carousel-control-prev-icon"></span>
 						<span class="sr-only"></span>
 					</a>
-					<a class="carousel-control-next" href="#carouselExampleControls"
+					<a class="carousel-control-next" href="#book-carousel"
 						role="button" data-slide="next">
 						<span class="carousel-control-next-icon"></span>
 						<span class="sr-only"></span>
@@ -64,7 +37,12 @@
 						preocuparte por rellenar muchos datos. Todos los libros serán almacenados
 						y se pueden recuperar en cualquier momento. Este texto es pleno relleno, de
 						veras que no tengo tiempo para rellenar nada que pueda hacer que esta 
-						aplicación parezca completa
+						aplicación parezca completa. Aquí va algo de Lorem.
+					</p>
+					<p>
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab nam doloremque 
+						provident ex, sequi cum aut ea deserunt in! Quisquam, inventore neque itaque 
+						iste sint assumenda porro nemo suscipit. Aliquid.
 					</p>
 				</div>
 				<div class="col-md">
@@ -89,6 +67,8 @@
 		<footer>
 
 		</footer>
+
+		<script src="../files/js/index.js"></script>
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
