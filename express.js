@@ -9,6 +9,8 @@ app.use("/css", express.static("./node_modules/bootstrap/dist/css"));
 // Set JS Bootstrap path
 app.use("/js", express.static("./node_modules/bootstrap/dist/js"));
 
+app.use("/custom-css", express.static("./custom-css"));
+
 // Set the path of files for JS scripts
 app.use("/files", express.static(path.join(__dirname, "files")));
 
