@@ -14,7 +14,9 @@ const object = new Schema(
         _id: Schema.Types.String,
         title: Schema.Types.String,
         author: Schema.Types.String,
-        pages: Schema.Types.Number
+        pages: Schema.Types.Number,
+        genre: Schema.Types.Number,
+        cover: Schema.Types.String
     }, { collection: "Books"}
 )
 
@@ -27,7 +29,7 @@ class BookController {
             [
                 {
                     $project: {
-                        _id: 1, title: 1, author: 1, pages: 1
+                        _id: 1, title: 1, author: 1, pages: 1, genre: 1, cover: 1
                     }
                 }
             ]
