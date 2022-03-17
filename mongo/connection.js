@@ -40,8 +40,28 @@ class BookController {
         });
     }
 
+    getBook(request, response) {
+        const title = request.params.title;
+        Books.aggregate(
+            [
+                {
+                    $match: {title: title}
+                },
+                {
+                    $project: {
+                        _id: 1, title: 1, author: 1, pages: 1, genre: 1, cover: 1
+                    }
+                }
+            ]
+        ).then(res => {
+            response.json(res);
+        }).catch(err => {
+            response.end(err);
+        });
+    }
+
     deleteBook(request, response) {
-        const title  = request.params.title;
+        const title = request.params.title;
         Books.deleteOne( { title: title } ).then(res => {
             response.json({ estado: "ok" });
         }).catch(err => {

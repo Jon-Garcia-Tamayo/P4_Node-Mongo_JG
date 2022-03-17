@@ -28,6 +28,10 @@ app.get("/books", (request, response) => {
     cn.getAll(request, response);
 });
 
+app.get("/getBook/:title", (request, response) => {
+    cn.getBook(request, response);
+});
+
 app.get("/removeBook/:title", (request, response) => {
     cn.deleteBook(request, response );
 });
