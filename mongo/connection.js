@@ -39,6 +39,15 @@ class BookController {
             response.end("An error has occurred");
         });
     }
+
+    deleteBook(request, response) {
+        const title  = request.params.title;
+        Books.deleteOne( { title: title } ).then(res => {
+            response.json({ estado: "ok" });
+        }).catch(err => {
+            response.json({ estado: "error"})
+        })
+    }
 }
 
 module.exports = new BookController();

@@ -9,12 +9,31 @@
 		<link rel="stylesheet" href="custom-css/styles.css">
 	</head>
 	<body>
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Advertencia</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro/a de que quieres borrar este libro?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="modal-delete-button">Borrar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<header class="text-center my-5">
 			<h1>Biblioteca</h1>
 		</header>
 		<main class="mx-5">
 			<div class="row my-5">
-				<div id="book-carousel" class="carousel" data-ride="carousel">
+				<div id="book-carousel" class="carousel" data-interval="false">
 					<div class="carousel-inner" id="carousel-items">
 
 					</div>
@@ -30,23 +49,42 @@
 					</a>
 				</div>
 			</div>
+
+			<div class="text-center">
+				<button class="btn btn-primary" id="edit-button" data-toggle="modal" data-target="#editModal">Editar</button>
+				<button class="btn btn-danger" id="delete-button" data-toggle="modal" data-target="#deleteModal">Borrar</button>
+			</div>
+
+
 			<div class="row my-5">
 				<div class="col-md">
 					<h1>Guarda tus libros favoritos</h1>
 					<p>
-						Con la biblioteca local, podrás guardar docenas y docenas de libros sin 
+						Con la biblioteca local, podrás guardar docenas y docenas de libros sin
 						preocuparte por rellenar muchos datos. Todos los libros serán almacenados
-						y se pueden recuperar en cualquier momento. Este texto es pleno relleno, de
-						veras que no tengo tiempo para rellenar nada que pueda hacer que esta 
+						y se pueden recuperar en cualquier momento. Este texto es pleno relleno,
+						de
+						veras que no tengo tiempo para rellenar nada que pueda hacer que esta
 						aplicación parezca completa. Aquí va algo de Lorem.
 					</p>
 					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat illo, velit sit tempore doloremque nobis, odio ullam in magni, iusto rem cupiditate. Aspernatur, cum! Nostrum hic similique obcaecati quidem facere!
-						Assumenda, iure. Est sint mollitia eos animi quibusdam exercitationem reprehenderit nulla, earum impedit at adipisci enim suscipit voluptates architecto rerum accusantium. Porro eum quae doloremque sunt, similique culpa a modi.
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat illo,
+						velit sit tempore doloremque nobis, odio ullam in magni, iusto rem
+						cupiditate. Aspernatur, cum! Nostrum hic similique obcaecati quidem
+						facere!
+						Assumenda, iure. Est sint mollitia eos animi quibusdam exercitationem
+						reprehenderit nulla, earum impedit at adipisci enim suscipit voluptates
+						architecto rerum accusantium. Porro eum quae doloremque sunt, similique
+						culpa a modi.
 					</p>
 					<p>
-					    Adipisci ipsam ducimus deleniti dolorem nesciunt ea cupiditate, optio, accusamus voluptates aliquam corporis incidunt vitae quidem. Sequi, aliquam?
-						Numquam delectus, sed in natus veniam nesciunt, reprehenderit voluptate alias minima suscipit autem, beatae architecto? Voluptatibus exercitationem quaerat, unde architecto dolorem illum consectetur repudiandae aut nostrum vitae ipsam voluptates repellat.
+						Adipisci ipsam ducimus deleniti dolorem nesciunt ea cupiditate, optio,
+						accusamus voluptates aliquam corporis incidunt vitae quidem. Sequi,
+						aliquam?
+						Numquam delectus, sed in natus veniam nesciunt, reprehenderit voluptate
+						alias minima suscipit autem, beatae architecto? Voluptatibus
+						exercitationem quaerat, unde architecto dolorem illum consectetur
+						repudiandae aut nostrum vitae ipsam voluptates repellat.
 					</p>
 				</div>
 				<div class="col-md my-auto">
@@ -72,13 +110,13 @@
 							<input type="text" class="form-control" id="pages">
 						</div>
 						<button type="submit" class="btn btn-primary my-3">Crear</button>
-						<button type="submit" class="btn btn-danger my-3">Borrar</button>
 					</form>
 				</div>
 			</div>
 		</main>
 		<footer class="text-center my-5">
-			<small>Biblioteca de Jon García Tamayo, ¿Correcto? Todos los derechos reservados. 2022</small>
+			<small>Biblioteca de Jon García Tamayo, ¿Correcto? Todos los derechos
+				reservados. 2022</small>
 		</footer>
 
 		<script src="../files/js/index.js"></script>

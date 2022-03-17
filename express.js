@@ -27,3 +27,7 @@ app.listen("9000", (e) => {
 app.get("/books", (request, response) => {
     cn.getAll(request, response);
 });
+
+app.get("/removeBook/:title", (request, response) => {
+    cn.deleteBook(request, response );
+});
