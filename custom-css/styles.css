@@ -36,6 +36,22 @@
     background-repeat: no-repeat;
 }
 
+.green {
+    background-image: radial-gradient(#00dd42, #034d0d);
+    background-repeat: no-repeat;
+}
+
+.brown {
+    background-image: radial-gradient(#dd5100,  #4d1e03);
+    background-repeat: no-repeat;
+}
+
+.yellow {
+    background-image: radial-gradient(#fff704,  #4d4803);
+    background-repeat: no-repeat;
+}
+
+
 .custom-edit-form {
     width: 600px;
     height: 600px;

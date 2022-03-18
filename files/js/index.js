@@ -1,5 +1,5 @@
 const carouselItems = document.getElementById("carousel-items");
-const colors = ["red", "blue", "purple"];
+const colors = ["red", "blue", "purple", "green", "brown", "yellow"];
 const editForm = document.getElementById("edit-form");
 
 const nextButton = document.getElementById("next-carousel-button");
@@ -21,6 +21,10 @@ let pages;
 let genres;
 let cover;
 
+let active = true;
+
+let books;
+let pointer = 0;
 
 editButton.addEventListener("click", (e) => {
     clearForm();
@@ -44,11 +48,19 @@ formCancelButton.addEventListener("click", (e) => {
     hideForm();
 })
 
-let active = true;
+nextButton.addEventListener("click", (e) => {
+    pointer = pointer >= books.length - 1 ? 0 : (pointer + 1);
+});
 
-let books;
-let pointer = 0;
+previousButton.addEventListener("click", (e) => {
+    pointer = pointer <= 0 ? books.length - 1 : (pointer - 1);
+});
 
+
+/**
+ * En el momento de cargar la página se realiza un fetch() para
+ * conseguir todos los libros almacenados en la base de datos.
+ */
 window.addEventListener("load", (e) => {
 
     fetch("/books").then(res => {
@@ -57,18 +69,16 @@ window.addEventListener("load", (e) => {
             books = json;
         });
     })
-
-    nextButton.addEventListener("click", (e) => {
-        pointer = pointer >= books.length - 1 ? 0 : (pointer + 1);
-    });
-
-    previousButton.addEventListener("click", (e) => {
-        pointer = pointer <= 0 ? books.length - 1 : (pointer - 1);
-    });
-
 });
 
-
+/**
+ * Renderiza unos libros en el carousel de la página web dado
+ * un json. 
+ * 
+ * El primer libro se marca como "activo" para el carousel
+ * 
+ * @param json - JSON con libros a renderizar
+ */
 function renderBooks(json) {
     for (const book of json) {
         carouselItems.innerHTML += 
@@ -95,6 +105,14 @@ function renderBooks(json) {
     }
 }
 
+
+/**
+ * Extrae un libro específico utilizando fetch().
+ * 
+ * Para ello, se hace uso de una variable {pointer} y el JSON {books} para
+ * extraer el título del libro que esta siendo mostrado en el carousel.
+ * 
+ */
 function getBook() {
     fetch(`/getBook/${books[pointer].title}`)
     .then(res => {
@@ -109,11 +127,24 @@ function getBook() {
     }).catch(err => { console.log(err) });
 }
 
+/**
+ * Elimina un libro de la base de datos y después recarga la página.
+ * 
+ * A la hora de coger el libro seleccionado, se hace uso de una variable {pointer} 
+ * y el JSON {books} para saber qué libro esta siendo mostrado al usuario en el momento.
+ * 
+ */
 function deleteBook() {
     fetch(`/removeBook/${books[pointer].title}`);
     location.reload();
 }
 
+/**
+ * Envía los datos del formulario EDITAR libro
+ * 
+ * Es importante tener en cuenta que en este caso el ID no se modificará
+ * dado que es una clave primaria.
+ */
 function sendDataFromEditBook() {
     id = document.getElementById("book-id").value;
     title = document.getElementById("book-title").value;
@@ -151,6 +182,11 @@ function sendDataFromEditBook() {
     location.reload();
 }
 
+/**
+ * Envía los datos del formulario CREAR libro.
+ * 
+ * En este método se omite por completo el campo ID
+ */
 function sendDataFromNewBook() {
     title = document.getElementById("title").value;
     author = document.getElementById("author").value;
@@ -188,6 +224,10 @@ function sendDataFromNewBook() {
 
 }
 
+/**
+ * Escoge un color aleatorio para mostrar en el carousel
+ * @returns 
+ */
 function randomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
