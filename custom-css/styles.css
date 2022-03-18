@@ -35,3 +35,19 @@
     background-image: radial-gradient(#8500dd, #42034d);
     background-repeat: no-repeat;
 }
+
+.custom-edit-form {
+    width: 600px;
+    height: 600px;
+
+    padding: 10px 20px 0 20px;
+
+    position: fixed;
+    top: 20%;
+    left: 33%;
+
+    background-color: white;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
