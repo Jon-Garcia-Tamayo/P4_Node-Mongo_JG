@@ -232,14 +232,27 @@ function randomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
+/**
+ * Muestra el formulario cambiandole el display a block
+ * Este método es utilizado cuando se presiona el boton editar.
+ */
 function showForm() {
     editForm.style.display = "block";
 }
 
+/**
+ * Muestra el formulario cambiandole el display a none
+ * Esto ocurre cuando se ha cancelado el boton presionar a la 
+ * hora de editar un libro
+ */
 function hideForm() {
     editForm.style.display = "none";
 }
 
+/**
+ * Limpia los datos de cada input que contiene el formulario
+ * editar.
+ */
 function clearForm() {
     document.getElementById("book-id").value = "";
     document.getElementById("book-title").value = "";
